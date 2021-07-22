@@ -55,25 +55,25 @@ Requisitos Funcionais
 
 ## [Requisitos Não Funcionais](##requisitos)
 
-[RNF1] - Deve ser distribuído e executar simultanamente em no mínimo 3 clientes (hosts) diferentes. <br>
+<b>[RNF1]</b> - Deve ser distribuído e executar simultanamente em no mínimo 3 clientes (hosts) diferentes. <br>
         A) Considerar o uso do ngrok para comunicação entre os diferentes hosts.<br>
-[RNF2] - Deve haver comunicação entre os diferentes clientes através de: <br>
+<b>[RNF2]</b> - Deve haver comunicação entre os diferentes clientes através de: <br>
         A)Sockets, ou<br>
         B)RMI. Ler seções 5.4 e 5.5 de (COULOURIS, DOLLIMORE, et al., 2013) ou,<br>
         C)CORBA. Ler seção 8.3 de (COULOURIS, DOLLIMORE, et al., 2013).<br>
-[RNF3] -  A comunicação cliente/cliente deve ser direta, ou seja, sem passar por qualquer servidor. <br>
-[RNF4] -  Deve ser possível realizar comunicação entre diversos clientes simultaneamente.<br>
-[RNF5] -  Se necessário, pode ser implementado um servidor simples para ser acessado pelos clientes.<br>
+<b>[RNF3]</b> -  A comunicação cliente/cliente deve ser direta, ou seja, sem passar por qualquer servidor. <br>
+<b>[RNF4]</b> -  Deve ser possível realizar comunicação entre diversos clientes simultaneamente.<br>
+<b>[RNF5]</b> -  Se necessário, pode ser implementado um servidor simples para ser acessado pelos clientes.<br>
         A)Este servidor jamais deve criar conexões com clientes, apenas receber conexões.<br>
         B)A comunicação cliente→servidor deve ser a mínima possível. O funcionamento do sistema deve<br>
         ser baseado principalmente na comunicação ser cliente→cliente.<br>
         C)Não se deve utilizar nenhuma implementação pronta de qualquer servidor (ex: Express JS). Em<br>
         caso de dúvida, consulte o professor.<br>
-[RNF6] -  Se utilizar Sockets no requisito (2), então deve-se observar os seguintes requisitos: <br>
+<b>[RNF6]</b> -  Se utilizar Sockets no requisito (2), então deve-se observar os seguintes requisitos: <br>
         A)Sockets ociosos não podem existir (todos devem ser fechados logo após a comunicação).
         B)Os dados enviados entre cliente/servidor e cliente/cliente podem estar no formato JSON ou<br>
         XML. Não é permitido o uso de serialização de objetos.<br>
-[RNF7] -  A aplicação cliente deve ter interface gráfica. <br>
+<b>[RNF7]</b> -  A aplicação cliente deve ter interface gráfica. <br>
         A) A equipe pode utilizar interface gráfica disponível em outros projetos, citando a fonte/projeto.<br>
         MAS ATENÇÃO: o projeto utilizado como base não pode ser distribuído (não pode já ter<br>
         comunicação entre clientes)<br>
