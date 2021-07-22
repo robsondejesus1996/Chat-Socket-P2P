@@ -13,11 +13,11 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 
 * [Descrição Geral e Requisitos Funcionais](#descricao)
 
-* [Requisitos Não Funcionais](#requisitosNaoFuncionais)
+* [Requisitos Não Funcionais](#requisitos)
 
-* [Especificação Mensagens(Cliente/Servidor)](#Especificacaodefinicao)
+* [Especificação Mensagens(Cliente/Servidor)](#ClienteServidor)
 
-* [Especificação Mensagens(Cliente/Cliente)](#EspecificacaoPreliminar)
+* [Especificação Mensagens(Cliente/Cliente)](#ClienteCliente)
 
 * [Diagramas](#diagramas)
 
@@ -53,25 +53,40 @@ Requisitos Funcionais
 
 ---
 
-## [Requisitos Não Funcionais](##requisitosNaoFuncionais)
+## [Requisitos Não Funcionais](##requisitos)
 
-[RNF1] - <br>
-[RNF2] - <br>
-[RNF3] - <br>
-[RNF4] - <br>
-[RNF5] - <br>
-[RNF6] - <br>
-[RNF7] - <br>
+[RNF1] - Deve ser distribuído e executar simultanamente em no mínimo 3 clientes (hosts) diferentes. <br>
+        A) Considerar o uso do ngrok para comunicação entre os diferentes hosts.<br>
+[RNF2] - Deve haver comunicação entre os diferentes clientes através de: <br>
+        A)Sockets, ou<br>
+        B)RMI. Ler seções 5.4 e 5.5 de (COULOURIS, DOLLIMORE, et al., 2013) ou,<br>
+        C)CORBA. Ler seção 8.3 de (COULOURIS, DOLLIMORE, et al., 2013).<br>
+[RNF3] -  A comunicação cliente/cliente deve ser direta, ou seja, sem passar por qualquer servidor. <br>
+[RNF4] -  Deve ser possível realizar comunicação entre diversos clientes simultaneamente.<br>
+[RNF5] -  Se necessário, pode ser implementado um servidor simples para ser acessado pelos clientes.<br>
+        A)Este servidor jamais deve criar conexões com clientes, apenas receber conexões.<br>
+        B)A comunicação cliente→servidor deve ser a mínima possível. O funcionamento do sistema deve<br>
+        ser baseado principalmente na comunicação ser cliente→cliente.<br>
+        C)Não se deve utilizar nenhuma implementação pronta de qualquer servidor (ex: Express JS). Em<br>
+        caso de dúvida, consulte o professor.<br>
+[RNF6] -  Se utilizar Sockets no requisito (2), então deve-se observar os seguintes requisitos: <br>
+        A)Sockets ociosos não podem existir (todos devem ser fechados logo após a comunicação).
+        B)Os dados enviados entre cliente/servidor e cliente/cliente podem estar no formato JSON ou<br>
+        XML. Não é permitido o uso de serialização de objetos.<br>
+[RNF7] -  A aplicação cliente deve ter interface gráfica. <br>
+        A) A equipe pode utilizar interface gráfica disponível em outros projetos, citando a fonte/projeto.<br>
+        MAS ATENÇÃO: o projeto utilizado como base não pode ser distribuído (não pode já ter<br>
+        comunicação entre clientes)<br>
 
 ---
-## [Especificação Mensagens(Cliente/Servidor)](#Especificacaodefinicao)
+## [Especificação Mensagens(Cliente/Servidor)](#ClienteServidor)
 
 teste mensagens trocadas cliente/cliente
 
 ---
 
 
-## [Especificação Mensagens(Cliente/Cliente)](#EspecificacaoPreliminar)
+## [Especificação Mensagens(Cliente/Cliente)](#ClienteCliente)
 
 teste mensagens trocadas cliente/cliente
 
