@@ -29,11 +29,11 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 
 ## [Descrição Geral e Requisitos Funcionais](#descricao)
 
-O trabalho tem como objetivo desenvolver uma aplicação Servivor/Cliente e Cliete/Cliente P2P para o troca de mensagens. Logo vamos desenvolver aqui uma aplicação estilo Messenger que os usuários ao entrar<br>
+<p align="justify">O trabalho tem como objetivo desenvolver uma aplicação Servivor/Cliente e Cliete/Cliente P2P para o troca de mensagens. Logo vamos desenvolver aqui uma aplicação estilo Messenger que os usuários ao entrar<br>
 devem informar o nome e uma porta para a comunicação entre as redes. Vamos utilizar de uma tecnologia chamada socket (network socket) que seria um ponto final de um fluxo de comunicação entre porcessos<br>
-através de uma rede de computadores.<br>
+através de uma rede de computadores.</p><br>
 
-Requisitos Funcionasi
+Requisitos Funcionais
 [RN1] - <br>
 [RN2] - <br>
 [RN3] - <br>
