@@ -10,12 +10,16 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 
 # Sumário 
 * [Equipe](#equipe)
+
 * [Descrição Geral e Requisitos Funcionais](#descricao)
-* [Especificação Mensagens(Cliente/Servidor)](#Especificacaodefinicao)
-* [Diagramas](#diagramas)
-* [Especificação Mensagens(Cliente/Cliente)](#EspecificacaoPreliminar)
+
 * [Requisitos Não Funcionais](#requisitosNaoFuncionais)
 
+* [Especificação Mensagens(Cliente/Servidor)](#Especificacaodefinicao)
+
+* [Especificação Mensagens(Cliente/Cliente)](#EspecificacaoPreliminar)
+
+* [Diagramas](#diagramas)
 
 
 ---
@@ -29,9 +33,11 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 
 ## [Descrição Geral e Requisitos Funcionais](#descricao)
 
-<p align="justify">O trabalho tem como objetivo desenvolver uma aplicação Servivor/Cliente e Cliete/Cliente P2P para o troca de mensagens. Logo vamos desenvolver aqui uma aplicação estilo Messenger que os usuários ao entrar<br>
+
+O trabalho tem como objetivo desenvolver uma aplicação Servivor/Cliente e Cliete/Cliente P2P para o troca de mensagens. Logo vamos desenvolver aqui uma aplicação estilo Messenger que os usuários ao entrar<br>
 devem informar o nome e uma porta para a comunicação entre as redes. Vamos utilizar de uma tecnologia chamada socket (network socket) que seria um ponto final de um fluxo de comunicação entre porcessos<br>
-através de uma rede de computadores.</p><br>
+através de uma rede de computadores.
+<br>
 
 Requisitos Funcionais
 [RN1] - <br>
@@ -47,10 +53,20 @@ Requisitos Funcionais
 
 ---
 
-## [Especificação Mensagens(Cliente/Servidor](#Especificacaodefinicao)
+## [Requisitos Não Funcionais](##requisitosNaoFuncionais)
 
-teste mensagens trocadas cliente/servidor
+[RNF1] - <br>
+[RNF2] - <br>
+[RNF3] - <br>
+[RNF4] - <br>
+[RNF5] - <br>
+[RNF6] - <br>
+[RNF7] - <br>
 
+---
+## [Especificação Mensagens(Cliente/Servidor)](#Especificacaodefinicao)
+
+teste mensagens trocadas cliente/cliente
 
 ---
 
