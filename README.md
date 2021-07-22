@@ -11,7 +11,7 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 # Sumário 
 * [Equipe](#equipe)
 
-* [Descrição Geral e Requisitos Funcionais](#descricao)
+* [Descrição e Requisitos Funcionais](#descricao)
 
 * [Requisitos Não Funcionais](#requisitos)
 
@@ -31,7 +31,7 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 
 ---
 
-## [Descrição Geral e Requisitos Funcionais](#descricao)
+## [Descrição e Requisitos Funcionais](#descricao)
 
 
 O trabalho tem como objetivo desenvolver uma aplicação Servivor/Cliente e Cliete/Cliente P2P para o troca de mensagens. Logo vamos desenvolver aqui uma aplicação estilo Messenger que os usuários ao entrar<br>
