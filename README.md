@@ -10,10 +10,11 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 
 # Sumário 
 * [Equipe](#equipe)
-* [Descrição Geral](#descricao)
+* [Descrição Geral e Requisitos Funcionais](#descricao)
 * [Especificação Mensagens(Cliente/Servidor)](#Especificacaodefinicao)
 * [Diagramas](#diagramas)
 * [Especificação Mensagens(Cliente/Cliente)](#EspecificacaoPreliminar)
+* [Requisitos Não Funcionais](#requisitosNaoFuncionais)
 
 
 
@@ -26,9 +27,23 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 
 ---
 
-## [Descrição Geral](#descricao)
+## [Descrição Geral e Requisitos Funcionais](#descricao)
 
-teste descricao<br>
+O trabalho tem como objetivo desenvolver uma aplicação Servivor/Cliente e Cliete/Cliente P2P para o troca de mensagens. Logo vamos desenvolver aqui uma aplicação estilo Messenger que os usuários ao entrar<br>
+devem informar o nome e uma porta para a comunicação entre as redes. Vamos utilizar de uma tecnologia chamada socket (network socket) que seria um ponto final de um fluxo de comunicação entre porcessos<br>
+através de uma rede de computadores.<br>
+
+Requisitos Funcionasi
+[RN1] - <br>
+[RN2] - <br>
+[RN3] - <br>
+[RN4] - <br>
+[RN5] - <br>
+[RN6] - <br>
+[RN7] - <br>
+[RN8] - <br>
+[RN9] - <br>
+[RN10] - <br>
 
 ---
 
