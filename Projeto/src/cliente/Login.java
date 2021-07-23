@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package cliente;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -71,6 +71,7 @@ public class Login extends JFrame {
         
         //configuração input da porta
         portaTexto.setBounds(120, 170, 265, 40);
+        
        
     }
 
