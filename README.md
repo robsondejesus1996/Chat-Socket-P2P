@@ -39,10 +39,10 @@ devem informar o nome e uma porta para a comunicação entre as redes. Vamos uti
 através de uma rede de computadores.<br>
 
 <h1>Funcionamento comunicação</h1>
-A comunicação do chat vai ser através de todo o cliente se comunica com o servidor para ter a lista de todos os clientes que estão online, ou seja, o servidor me retorna o endereço IP,<br>
-a porta e o nome do cliente que está conectado. Após o cliente receber está lista do servidor ele pode se conectar diretamente com cada um dos clientes. A mensagem que esse chat for enviar<br> 
-não vai passar pelo servidor, e depois o servidor enviar para o cliente. O cliente vai fazer uma conexão diretamente com o outro cliente P2P. O servidor só será utilizado para dizer quem <br>
-está online no momento e quem não está.<br>
+A comunicação do chat vai ser através de todo o cliente se comunica com o servidor para ter a lista de todos os clientes que estão online, ou seja, o servidor me retorna o endereço IP
+a porta e o nome do cliente que está conectado. Após o cliente receber está lista do servidor ele pode se conectar diretamente com cada um dos clientes. A mensagem que esse chat for enviar
+não vai passar pelo servidor, e depois o servidor enviar para o cliente. O cliente vai fazer uma conexão diretamente com o outro cliente P2P. O servidor só será utilizado para dizer quem 
+está online no momento e quem não está.
 <br>
 
 Requisitos Funcionais

@@ -70,8 +70,8 @@ public class Login extends JFrame {
         usuarioTexto.setBounds(120, 120, 265, 40);
         
         //configuração input da porta
-        //portaTexto.setBounds(120, 120, 265, 40);
-        portaTexto.setBounds(WIDTH, WIDTH, WIDTH, HEIGHT);
+        portaTexto.setBounds(120, 170, 265, 40);
+       
     }
 
     private void inserirComponentes() {
