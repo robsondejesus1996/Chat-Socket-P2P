@@ -89,7 +89,7 @@ Requisitos Funcionais
 
 A comunicação entre essas duas partes será minima, o servidor me retorna o endereço IP a porta e o nome do cliente que está conectado. Vamos desenvolver a comunicação cliente e servidor para coisas simples como:
 
-<h1>Especificação mensagens</h1>
+<h1>Especificação mensagens Servidor</h1>
 1) Retorno de sucesso se ele conseguir conectar no chat.<br>
 2) Retorno de erro se o usuário entrar com o mesmo nome e porta(A porta de entrada deve ser única se o usuário estiver na mesma rede de acesso).<br>
 3) Retorna o erro de execução do servidor se por acasso o servidor no momento não estiver em execução.<br>
@@ -103,7 +103,8 @@ A comunicação entre essas duas partes será minima, o servidor me retorna o en
 Após o cliente receber está lista do servidor ele pode se conectar diretamente com cada um dos clientes. A mensagem que esse chat for enviar
 não vai passar pelo servidor, e depois o servidor enviar para o cliente. O cliente vai fazer uma conexão diretamente com o outro clientes.
 
-<h1>Especificação mensagens<h1>
+<h1>Especificação mensagens Cliente<h1>
+
 1) Quando o usuário já estiver logado no sistema teremos um atualizar lista de contatos, essa é a unica função que também está conectada com o Server(Lembrado isso é só para pegar a lista de usuários conectados no momento)<br>
 
 2) Ao abrir uma conversa com outro cliente, teremos o ClienteListener se conectando com outro ClienteListener<br>
