@@ -43,11 +43,9 @@ A comunicação do chat vai ser através de todo o cliente se comunica com o ser
 a porta e o nome do cliente que está conectado. Após o cliente receber está lista do servidor ele pode se conectar diretamente com cada um dos clientes. A mensagem que esse chat for enviar
 não vai passar pelo servidor, e depois o servidor enviar para o cliente. O cliente vai fazer uma conexão diretamente com o outro cliente P2P. O servidor só será utilizado para dizer quem 
 está online no momento e quem não está.
-<br><br>
+<br>
 
 <h1>Requisitos Funcionais <h1>
-
-
 [RN1] - O sistema deve permitir a verificação do usuário ao fazer o login (Nome usuário e Porta) <br>
 [RN2] – O sistema deve permitir o envio de mensagens entre os usuários. <br>
 [RN3] - O sistema deve ter um mecanismo para retorna um erro de execução se o Server não estiver em execução. <br>
