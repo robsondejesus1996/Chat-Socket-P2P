@@ -45,7 +45,7 @@ não vai passar pelo servidor, e depois o servidor enviar para o cliente. O clie
 está online no momento e quem não está.
 <br>
 
-<h1>Requisitos Funcionais <h1>
+<h1>Requisitos Funcionais</h1>
 [RN1] - O sistema deve permitir a verificação do usuário ao fazer o login (Nome usuário e Porta) <br>
 [RN2] – O sistema deve permitir o envio de mensagens entre os usuários. <br>
 [RN3] - O sistema deve ter um mecanismo para retorna um erro de execução se o Server não estiver em execução. <br>
