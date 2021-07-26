@@ -46,6 +46,8 @@ está online no momento e quem não está.
 <br><br>
 
 <h1>Requisitos Funcionais <h1>
+
+
 [RN1] - O sistema deve permitir a verificação do usuário ao fazer o login (Nome usuário e Porta) <br>
 [RN2] – O sistema deve permitir o envio de mensagens entre os usuários. <br>
 [RN3] - O sistema deve ter um mecanismo para retorna um erro de execução se o Server não estiver em execução. <br>
@@ -116,8 +118,11 @@ Especificação mensagens Cliente
 <h1>Comunicação Cliente/Servidor</h1>
 
 
-![Cliente-Servidor](https://user-images.githubusercontent.com/31260719/126997308-221024ac-e28d-4bb6-ba67-16241a17013e.png)
+![Cliente-Servidor](https://user-images.githubusercontent.com/31260719/127002691-9f293ee2-fd06-44f6-b0ed-3660fa48aee1.png)
 
 
 
 <h1>Comunicação Cliente/Cliente</h1>
+
+
+![Cliente-Cliente](https://user-images.githubusercontent.com/31260719/127002858-9bdb0cf6-e2ae-41b3-8255-5a13be53a0d3.png)
