@@ -114,6 +114,8 @@ Especificação mensagens Cliente
 ## [Diagramas](#diagramas)
 
 <h1>Comunicação Cliente/Servidor</h1>
+
+
 ![Cliente-Servidor](https://user-images.githubusercontent.com/31260719/126997308-221024ac-e28d-4bb6-ba67-16241a17013e.png)
 
 
