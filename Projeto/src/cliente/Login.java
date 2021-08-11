@@ -23,9 +23,9 @@ import sun.swing.SwingAccessor;
  */
 public class Login extends JFrame {
 
-    private JButton botaoLogin;
-    private JLabel usuarioLabel, portaLabel, tituloLabel;
-    private JTextField usuarioTexto, portaTexto;
+    private JButton jb_login;
+    private JLabel jl_user, jl_port, jl_title;
+    private JTextField jt_user, jt_port;
 
     public Login() {
         super("Login");
@@ -37,51 +37,46 @@ public class Login extends JFrame {
     }
 
     private void componentesIniciar() {
-        botaoLogin = new JButton("Acessar");
-        usuarioLabel = new JLabel("Nome usuário", SwingConstants.CENTER);
-        portaLabel = new JLabel("Porta de Acesso", SwingConstants.CENTER);
-        tituloLabel = new JLabel();
-        usuarioTexto = new JTextField();
-        portaTexto = new JTextField();
+        jb_login = new JButton("Entrar");
+        jl_user = new JLabel("Usuario", SwingConstants.CENTER);
+        jl_port = new JLabel("Porta", SwingConstants.CENTER);
+        jl_title = new JLabel();
+        jt_user = new JTextField();
+        jt_port =  new JTextField();
     }
 
     private void configurarComponentes() {
         this.setLayout(null);
-        this.setMinimumSize(new Dimension(400,300));
+        this.setMinimumSize(new Dimension(410, 300));
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(Color.WHITE);
-        
-        tituloLabel.setBounds(10, 10, 375, 100);
-        //ImageIcon icon = new ImageIcon("logo.png");
-        //tituloLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(375, 100, Image.SCALE_SMOOTH)));
-        
-        botaoLogin.setBounds(10, 220,375, 40);
-        
-        //configuração jlabel usuario
-        usuarioLabel.setBounds(10, 120, 100, 40);
-        usuarioLabel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        
-        //configuração jlabel porta
-        portaLabel.setBounds(10, 170, 100, 40);
-        portaLabel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        
-        //configuração input usuário 
-        usuarioTexto.setBounds(120, 120, 265, 40);
-        
-        //configuração input da porta
-        portaTexto.setBounds(120, 170, 265, 40);
+
+        jl_title.setBounds(10, 10, 375, 100);
+        ImageIcon icon = new ImageIcon("udesc.png");
+        jl_title.setIcon(new ImageIcon(icon.getImage().getScaledInstance(375, 100, Image.SCALE_SMOOTH)));
+
+        jb_login.setBounds(10, 220, 375, 40);
+
+        jl_user.setBounds(10, 120, 100, 40);
+        jl_user.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+
+        jl_port.setBounds(10, 170, 100, 40);
+        jl_port.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+
+        jt_user.setBounds(120, 120, 265, 40);
+        jt_port.setBounds(120, 170, 265, 40);
         
        
     }
 
     private void inserirComponentes() {
-       this.add(botaoLogin);
-       this.add(usuarioLabel);
-       this.add(portaLabel);
-       this.add(tituloLabel);
-       this.add(usuarioTexto);
-       this.add(portaTexto);
+        this.add(jl_title);
+        this.add(jb_login);
+        this.add(jl_port);
+        this.add(jl_user);
+        this.add(jt_port);
+        this.add(jt_user);
 
     }
 
