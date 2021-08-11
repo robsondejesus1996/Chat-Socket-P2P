@@ -28,7 +28,7 @@ public class Login extends JFrame {
     private JTextField jt_user, jt_port;
 
     public Login() {
-        super("Login");
+        super("UDESC - Login ");
         componentesIniciar();
         configurarComponentes();
         inserirComponentes();
@@ -37,9 +37,9 @@ public class Login extends JFrame {
     }
 
     private void componentesIniciar() {
-        jb_login = new JButton("Entrar");
-        jl_user = new JLabel("Usuario", SwingConstants.CENTER);
-        jl_port = new JLabel("Porta", SwingConstants.CENTER);
+        jb_login = new JButton("Enter");
+        jl_user = new JLabel("User", SwingConstants.CENTER);
+        jl_port = new JLabel("Port", SwingConstants.CENTER);
         jl_title = new JLabel();
         jt_user = new JTextField();
         jt_port =  new JTextField();

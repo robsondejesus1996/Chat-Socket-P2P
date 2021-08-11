@@ -15,7 +15,6 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
-import java.awt.*;
 
 /**
  *
@@ -23,57 +22,51 @@ import java.awt.*;
  */
 public class Home extends JFrame {
 
-    private String conection_info;
-    private JLabel titulo;
-    private JButton btnUsuariosOnlines, btnIniciarConversa; // botoes para ver usuários conectados e o outro para iniciar a conversa
-    private JList lista;// lista de usuários
+    private String connection_info;
+
+    private JLabel jl_title;
+    private JButton jb_get_connected, jb_start_talk;//pegar os usuários conectados e iniciar a conversa
+    private JList jList;//lista de usuários que vai estar la dentro
     private JScrollPane scroll;
 
-    public Home(String conection_info) {
-        super("Messenger");
-        this.conection_info = conection_info;
-        inserirComponentes();
-        componentesIniciar();
+    public Home(String connection_info) {//inviar uma string de dados que tenha o nome e a porta
+        super("Chat UDESC - HOME");
+        this.connection_info = connection_info;
+        iniciarComponentes();
         configurarComponentes();
+        inserirComponentes();
         inserirAcoes();
         iniciar();
     }
 
-    private void componentesIniciar() {
-
+    private void iniciarComponentes() {
+        jl_title = new JLabel("< Usuário : " + connection_info.split(":")[0] + " >", SwingConstants.CENTER); // configuracao do nome do usuário que esta na tela home, deixar centralizado
+        jb_get_connected = new JButton("Atualizar Contatos");
+        jb_start_talk = new JButton("Iniciar Conversa");
+        jList = new JList();
+        scroll = new JScrollPane(jList); // para se por acesso tiver muitos usuários onlines no momento 
+      
     }
 
-    // Robson: 127.0.0.1:3333
     private void configurarComponentes() {
         this.setLayout(null);
-        this.setMinimumSize(new Dimension(600, 480));
+        this.setMinimumSize(new Dimension(600, 490));
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.getContentPane().setBackground(Color.WHITE);
+        this.getContentPane().setBackground(Color.white);
 
-        titulo = new JLabel(" * Usuário : " + conection_info.split(":")[0] + "*", SwingConstants.CENTER);
-        btnUsuariosOnlines = new JButton("Atualizar usuários onlines");
-        btnIniciarConversa = new JButton("Iniciar Conversa");
-        lista = new JList();
-        scroll = new JScrollPane(lista); // coloquei um scroll pois pode ter uma lista muito grante, e pode ser que tenha que rolar para baixo 
+        jl_title.setBounds(10, 10, 370, 40);
+        jl_title.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 
-        //configuração do título 
-        titulo.setBounds(10, 10, 370, 40);
-        titulo.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+        jb_get_connected.setBounds(400, 10, 180, 40);
+        jb_get_connected.setFocusable(false);
+        
+        jb_start_talk.setBounds(10, 400, 565, 40);
+        jb_start_talk.setFocusable(false);
 
-        //configuração do botão conectados 
-        btnUsuariosOnlines.setBounds(400, 10, 180, 40);
-        btnUsuariosOnlines.setFocusable(false);
+        jList.setBorder(BorderFactory.createTitledBorder("Usuários online"));
+        jList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-        //configuração do do botao iniciar conversa
-        btnIniciarConversa.setBounds(10, 400, 575, 40);
-        btnIniciarConversa.setFocusable(false);
-
-        //configuração da minha lista de onlines
-        lista.setBorder(BorderFactory.createTitledBorder("Usuário conectados"));
-        lista.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-
-        //configuração do scroll
         scroll.setBounds(10, 60, 575, 335);
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -82,11 +75,10 @@ public class Home extends JFrame {
     }
 
     private void inserirComponentes() {
-        this.add(titulo);
-        this.add(btnUsuariosOnlines);
-        this.add(btnIniciarConversa);
-        this.add(lista);
+        this.add(jl_title);
+        this.add(jb_get_connected);
         this.add(scroll);
+        this.add(jb_start_talk);
     }
 
     private void inserirAcoes() {
@@ -99,12 +91,7 @@ public class Home extends JFrame {
     }
 
     public static void main(String[] args) {
-        Home home = new Home("Robson:127.0.1:3333");
+        Home home = new Home("Robson:127.0.0.1:4444");
     }
 
-//        componentesIniciar();
-//        configurarComponentes();
-//        inserirComponentes();
-//        inserirAcoes();
-//        iniciar();
 }
