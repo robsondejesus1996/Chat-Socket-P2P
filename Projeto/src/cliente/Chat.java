@@ -24,7 +24,7 @@ import javax.swing.SwingConstants;
 
 /**
  *
- * @author admin
+ * @author Robson de Jesus
  */
 public class Chat extends JFrame {
 
