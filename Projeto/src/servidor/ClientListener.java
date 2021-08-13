@@ -1,38 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package servidor;
 
-import com.sun.security.ntlm.Server;
+import util.Utils;
+import java.io.IOException;
 import java.net.Socket;
-import util.Util;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import servidor.Server;
 
-/**
- *
- * @author Robson de Jesus
- */
-public class ListaClientes implements Runnable {
-    //responsavel pela lista de clientes que vao estar conectados 
+public class ClientListener implements Runnable {
 
-    private String connection_info;
-    private Socket connection;
-    private Server server;
     private boolean running;
+    private Socket socket;
+    private String nickname;
+    private Server server;
 
-    //receber a minha conexao de informações e a minha referencia do servidor que esta rodando 
-    public ListaClientes(String connnection_info, Socket connection, Server server) {
-        this.connection_info = connection_info;
-        this.connection = connection;
+    public ClientListener(String nickname, Socket socket, Server server) {
         this.server = server;
-        this.running = false;
+        running = false;
+        this.socket = socket;
+        this.nickname = nickname;
     }
-
-    public ListaClientes() {
-    }
-    
-    
 
     public boolean isRunning() {
         return running;
@@ -42,21 +30,35 @@ public class ListaClientes implements Runnable {
         this.running = running;
     }
 
-    ///  enquando rodar ele vai ficar recebendo mensagens dessa conexao, 
     @Override
     public void run() {
         running = true;
         String message;
+        
         while (running) {
-            message = Util.receiveMessage(connection);
-            if (message.equals("quit")) {
+            message = Utils.receiveMessage(socket);
+            
+            if (message.toLowerCase().equals("quit")) {
+                server.getClientes().remove(nickname);
+                
+                try {
+                    socket.close();
+                } catch (IOException ex) {
+                    System.err.println("[ClientListener:Run] -> " + ex.getMessage());
+                }
                 running = false;
-            } else {
-                System.out.println("Recebida: " + message);
+            } else if (message.equals("GET_CONNECTED_USERS")) {
+                System.out.println("Solicitação de atualizar lista de contatos...");
+                String response = "";
+                
+                for (Map.Entry<String, ClientListener> pair : server.getClientes().entrySet()) {
+                    response += (pair.getKey() + ";");
+                }
+                
+                Utils.sendMessage(socket, response);
             }
-
+            System.out.println(" >> Mensagem: " + message);
         }
-
     }
 
 }

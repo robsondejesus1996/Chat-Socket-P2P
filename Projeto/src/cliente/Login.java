@@ -1,51 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cliente;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Image;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import sun.swing.SwingAccessor;
+import util.GUI;
+import util.Utils;
+import java.awt.*;
+import java.io.IOException;
+import java.net.Socket;
+import javax.swing.*;
+import servidor.Server;
 
-/**
- *
- * @author Robson de Jesus
- */
-public class Login extends JFrame {
+public class Login extends GUI {
 
     private JButton jb_login;
     private JLabel jl_user, jl_port, jl_title;
     private JTextField jt_user, jt_port;
 
     public Login() {
-        super("UDESC - Login ");
-        componentesIniciar();
-        configurarComponentes();
-        inserirComponentes();
-        inserirAcoes();
-        iniciar();
+        super("Login");
     }
 
-    private void componentesIniciar() {
-        jb_login = new JButton("Enter");
-        jl_user = new JLabel("User", SwingConstants.CENTER);
-        jl_port = new JLabel("Port", SwingConstants.CENTER);
+    @Override
+    protected void initComponents() {
+        jb_login = new JButton("Entrar");
+        jl_user = new JLabel("Usuario", SwingConstants.CENTER);
+        jl_port = new JLabel("Porta", SwingConstants.CENTER);
         jl_title = new JLabel();
         jt_user = new JTextField();
         jt_port =  new JTextField();
     }
 
-    private void configurarComponentes() {
+    @Override
+    protected void configComponents() {
         this.setLayout(null);
         this.setMinimumSize(new Dimension(410, 300));
         this.setResizable(false);
@@ -66,29 +50,50 @@ public class Login extends JFrame {
 
         jt_user.setBounds(120, 120, 265, 40);
         jt_port.setBounds(120, 170, 265, 40);
-        
-       
     }
 
-    private void inserirComponentes() {
+    @Override
+    protected void insertComponents() {
         this.add(jl_title);
         this.add(jb_login);
         this.add(jl_port);
         this.add(jl_user);
         this.add(jt_port);
         this.add(jt_user);
-
     }
 
-    private void inserirAcoes() {
-        
+    @Override
+    protected void insertActions() {
+        jb_login.addActionListener(event -> {
+            Socket connection;
+            try {
+                String nickname = jt_user.getText();
+                int port = Integer.parseInt(jt_port.getText());
+                jt_user.setText("");
+                jt_port.setText("");
+                connection = new Socket(Server.HOST, Server.PORT);
+                String request = nickname + ":" + connection.getLocalAddress().getHostAddress() + ":" + port;
+                Utils.sendMessage(connection, request);
+                if (Utils.receiveMessage(connection).toLowerCase().equals("sucess")) {
+                    new Home(connection, request);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Algum usuário já está conectado com este apelido ou tem alguém na mesma rede utilizando a mesma porta que vocÊ.");
+                }
+            } catch (IOException ex) {
+                System.err.println("[ERROR:login] -> " + ex.getMessage());
+                JOptionPane.showMessageDialog(this, "Erro ao conectar. Verifique se o servidor está em execução.");
+            }
+
+        });
     }
 
-    private void iniciar() {
+    @Override
+    protected void start() {
         this.pack();
         this.setVisible(true);
     }
-    
+
     public static void main(String[] args) {
         Login login = new Login();
     }

@@ -1,48 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package util;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- *
- * @author Robson de Jesus
- */
-public class Util {
-
-    public static boolean sendMessage(Socket connection, String message) {
-
+public class Utils {
+    public static boolean sendMessage(Socket sock, String message)
+    {     
         try {
-            ObjectOutputStream output = new ObjectOutputStream(connection.getOutputStream());
+            ObjectOutputStream output = new ObjectOutputStream(sock.getOutputStream());
             output.flush();
             output.writeObject(message);
             return true;
-        } catch (IOException e) {
-            System.out.println("[Erro:sendMessage] -> " + e.getMessage());
+        } catch (IOException ex) {
+            System.err.println("[ERROR:sendMessage] -> " + ex.getMessage());
         }
-
         return false;
     }
-
-    //esperar a resposta
-    public static String receiveMessage(Socket connection) {
+    
+    public static String receiveMessage(Socket sock)
+    {
         String response = null;
-
+        
         try {
-            //ler daddos da conexao
-            ObjectInputStream input = new ObjectInputStream(connection.getInputStream());
+            ObjectInputStream input = new ObjectInputStream(sock.getInputStream());
             response = (String) input.readObject();
-        } catch (IOException e) {
-            System.out.println("[Erro:sendMessage] -> " + e.getMessage());
-        } catch (ClassNotFoundException e) {
-            System.out.println("[Erro:sendMessage] -> " + e.getMessage());
+        } catch (IOException ex) {
+            System.err.println("[ERROR:receiveMessage] -> " + ex.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.err.println("[ERROR:receiveMessage] -> " + ex.getMessage());
         }
-        return response;
+         return response;
     }
 }
