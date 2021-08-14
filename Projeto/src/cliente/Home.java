@@ -49,7 +49,7 @@ public class Home extends GUI {
     }
 
     @Override
-    protected void initComponents() {
+    protected void inicializarComponentes() {
         title = new JLabel();
         jb_get_connected = new JButton("Atualizar lista de contatos");
         jlist = new JList();
@@ -58,7 +58,7 @@ public class Home extends GUI {
     }
 
     @Override
-    protected void configComponents() {
+    protected void configurarComponentes() {
         this.setLayout(null);
         this.setMinimumSize(new Dimension(600, 480));
         this.setResizable(false);
@@ -85,7 +85,7 @@ public class Home extends GUI {
     }
 
     @Override
-    protected void insertComponents() {
+    protected void inserirComponenetes() {
         this.add(title);
         this.add(jb_get_connected);
         this.add(scroll);
@@ -93,7 +93,7 @@ public class Home extends GUI {
     }
 
     @Override
-    protected void insertActions() {
+    protected void inserirAcoes() {
         this.addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
@@ -131,7 +131,7 @@ public class Home extends GUI {
     }
 
     @Override
-    protected void start() {
+    protected void iniciar() {
         this.pack();
         this.setVisible(true);
     }

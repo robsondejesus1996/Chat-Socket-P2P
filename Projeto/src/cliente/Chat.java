@@ -35,7 +35,7 @@ public class Chat extends GUI {
     }
 
     @Override
-    protected void initComponents() {
+    protected void inicializarComponentes() {
         jl_title = new JLabel();
         messages = new JEditorPane();
         scroll = new JScrollPane(messages);
@@ -45,7 +45,7 @@ public class Chat extends GUI {
     }
 
     @Override
-    protected void configComponents() {
+    protected void configurarComponentes() {
         this.setMinimumSize(new Dimension(480, 720));
         this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -57,7 +57,7 @@ public class Chat extends GUI {
     }
 
     @Override
-    protected void insertComponents() {
+    protected void inserirComponenetes() {
         this.add(jl_title, BorderLayout.NORTH);
         this.add(scroll, BorderLayout.CENTER);
         this.add(panel, BorderLayout.SOUTH);
@@ -66,7 +66,7 @@ public class Chat extends GUI {
     }
 
     @Override
-    protected void insertActions() {
+    protected void inserirAcoes() {
         jt_message.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -134,7 +134,7 @@ public class Chat extends GUI {
     }
 
     @Override
-    protected void start() {
+    protected void iniciar() {
         this.pack();
         this.setVisible(true);
     }
