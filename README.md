@@ -46,14 +46,13 @@ está online no momento e quem não está.
 <br>
 
 <h1>Requisitos Funcionais</h1>
-[RN1] - O sistema deve permitir a verificação do usuário ao fazer o login (Nome usuário e Porta) <br>
-[RN2] – O sistema deve permitir o envio de mensagens entre os usuários. <br>
-[RN3] - O sistema deve ter um mecanismo para retorna um erro de execução se o Server não estiver em execução. <br>
-[RN4] - O sistema deve ter em cada tela ao entrar no sistema o nome especificado do cliente que acabou de logar no sistema. <br>
-[RN5] - O sistema deve ter um botão para sempre atualizar a lista de usuários onlines no momento. Assim vamos conseguir ter a informação do nome e a rede que esse usuário está. <br>
-[RN6] - O sistema ao iniciar uma conversa com outro usuário deve abrir duas janelas de chat, uma para quem inicio a conversa e outra para quem está sendo solicitado no momento da conversa. <br>
-[RN7] - O sistema deve ter uma formatação na tela de chat iniciado com outros clientes, uma formatação de horário que a mensagem foi enviada e também o nome do usuário que enviou a mensagem naquele instante. <br>
-[RN8] - O sistema deve identificar se um usuário fechou a janela do chat com outro usuário. Assim as duas janelas devem ser encerradas ao mesmo tempo. <br>
+[RNF1] - O sistema deve permitir a verificação do usuário ao fazer o login (Nome usuário e Porta) <br>
+[RNF2] – O sistema deve permitir o envio de mensagens entre os usuários, a comunicação será direta entre cada usuário, logo será de forma privada. <br>
+[RNF3] - O sistema deve ter um mecanismo para retorna um erro de execução se o Server não estiver em execução. <br>
+[RNF4] - O sistema deve ter em cada tela ao entrar no sistema o nome especificado do cliente que acabou de logar no sistema. <br>
+[RNF5] - O sistema deve ter um botão para sempre atualizar a lista de usuários onlines no momento. Assim vamos conseguir ter a informação do nome e a rede que esse usuário está. <br>
+[RNF6] - O sistema ao iniciar uma conversa com outro usuário deve abrir duas janelas de chat, uma para quem inicio a conversa e outra para quem está sendo solicitado no momento da conversa. <br>
+[RNF7] - O sistema deve identificar se um usuário fechou a janela do chat com outro usuário. Assim as duas janelas devem ser encerradas ao mesmo tempo. <br>
 
 
 ---
@@ -86,7 +85,7 @@ está online no momento e quem não está.
 ---
 ## [Especificação Mensagens(Cliente/Servidor)](#ClienteServidor)
 
-A comunicação entre essas duas partes será minima, o servidor me retorna o endereço IP a porta e o nome do cliente que está conectado. Vamos desenvolver a comunicação cliente e servidor para coisas simples como:
+A comunicação entre essas duas partes será minima, o servidor me retorna o endereço IP a porta e o nome do cliente que está conectado. A verificação do nome do cliente e a porta se da pelo metodo checkLogin() na classe server, esse metodo vai testar o nome e a porta. Vamos desenvolver a comunicação cliente e servidor para coisas simples como:
 
 Especificação mensagens Servidor
 
@@ -113,14 +112,21 @@ Especificação mensagens Cliente
 
 ## [Diagramas](#diagramas)
 
-<h1>Comunicação Cliente/Servidor</h1>
+<h1>Comunicação Cliente/Servidor diagrama de classes</h1>
 
 
 ![Cliente-Servidor](https://user-images.githubusercontent.com/31260719/127002691-9f293ee2-fd06-44f6-b0ed-3660fa48aee1.png)
 
+<h1>Comunicação Cliente/Servidor diagrama de sequências</h1>
 
 
-<h1>Comunicação Cliente/Cliente</h1>
+
+<h1>Comunicação Cliente/Cliente diagrama de classes</h1>
+![Cliente-ServidorSequencia](https://user-images.githubusercontent.com/31260719/129446020-d89ba9ba-d854-4f35-b01b-61f0bc252502.png)
+
 
 
 ![Cliente-Cliente](https://user-images.githubusercontent.com/31260719/127002858-9bdb0cf6-e2ae-41b3-8255-5a13be53a0d3.png)
+
+
+<h1>Comunicação Cliente/Cliente diagrama de sequências</h1>

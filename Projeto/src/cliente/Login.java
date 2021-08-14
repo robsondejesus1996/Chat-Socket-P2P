@@ -78,7 +78,7 @@ public class Login extends GUI {
                     new Home(connection, request);
                     this.dispose();
                 } else {
-                    JOptionPane.showMessageDialog(this, "Algum usuário já está conectado com este apelido ou tem alguém na mesma rede utilizando a mesma porta que vocÊ.");
+                    JOptionPane.showMessageDialog(this, "Erro nome pode estar igual a algum usuário conectado ou a porta de conexão pode estar igual!");
                 }
             } catch (IOException ex) {
                 System.err.println("[ERROR:login] -> " + ex.getMessage());
