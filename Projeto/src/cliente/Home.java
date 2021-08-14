@@ -24,21 +24,27 @@ import servidor.Server;
 
 public class Home extends GUI {
 
-    private JLabel title;
-    private ServerSocket server;
+    private JLabel titulo;
+    private ServerSocket servidor;
     private final Socket connection;
     private final String connection_info;
-    private JButton jb_get_connected, jb_start_talk;
-    private JList jlist;
+    private JButton btn_usuarios_conectados, btn_iniciar_conversa;
+    private JList lista_usuarios;
     private JScrollPane scroll;
 
     private ArrayList<String> connected_users;
     private ArrayList<String> opened_chats;
     private Map<String, ClientListener> connected_listeners;
 
+    
+    /*
+    No construtor temos a comunicação com o servidor principal, logo ele vai estar verificando se  tem como entrar com aquele nome, e porta. Para isso vai ser enviado uma 
+    string connection_info que tem os dados de nome, ip e porta. (nome, ip, porta)
+    exemplo de conexao: Robson:127.0.0.1:8888
+    */
     public Home(Socket connection, String connection_info) {
-        super("Chat - Home");
-        title.setText("< Usuário : " + connection_info.split(":")[0] + " >");
+        super("UDESC CHAT");
+        titulo.setText("* Usuário : " + connection_info.split(":")[0] + " *");//espeficicando quem esta conectado, pegando a primeira string, e separando por :
         this.connection = connection;
         this.setTitle("Home - " + connection_info.split(":")[0]);
         this.connection_info = connection_info;
@@ -50,11 +56,11 @@ public class Home extends GUI {
 
     @Override
     protected void inicializarComponentes() {
-        title = new JLabel();
-        jb_get_connected = new JButton("Atualizar lista de contatos");
-        jlist = new JList();
-        scroll = new JScrollPane(jlist);
-        jb_start_talk = new JButton("Iniciar Conversa");
+        titulo = new JLabel();
+        btn_usuarios_conectados = new JButton("Contatos Atualizar");
+        lista_usuarios = new JList();
+        scroll = new JScrollPane(lista_usuarios);
+        btn_iniciar_conversa = new JButton("Iniciar");
     }
 
     @Override
@@ -65,19 +71,23 @@ public class Home extends GUI {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(Color.WHITE);
 
-        title.setHorizontalAlignment(SwingConstants.CENTER);
-        title.setBounds(10, 10, 370, 40);
-        title.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+        titulo.setHorizontalAlignment(SwingConstants.CENTER);
+        titulo.setBounds(10, 10, 370, 40);
+        titulo.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 
-        jb_get_connected.setBounds(400, 10, 180, 40);
-        jb_get_connected.setFocusable(false);
+        btn_usuarios_conectados.setBounds(400, 10, 180, 40);
+        btn_usuarios_conectados.setFocusable(false);
 
-        jb_start_talk.setBounds(10, 400, 575, 40);
-        jb_start_talk.setFocusable(false);
+        btn_iniciar_conversa.setBounds(10, 400, 575, 40);
+        btn_iniciar_conversa.setFocusable(false);
 
-        jlist.setBorder(BorderFactory.createTitledBorder("Usuários online"));
-        jlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        lista_usuarios.setBorder(BorderFactory.createTitledBorder("Onlines"));
+        lista_usuarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);// não selecionar mais de um usuário ao mesmo tempo 
 
+        
+        /*
+        configuração da barra de rolagem, para se caso ter muitos usuários creser mas a barra
+        */
         scroll.setBounds(10, 60, 575, 335);
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -86,10 +96,10 @@ public class Home extends GUI {
 
     @Override
     protected void inserirComponenetes() {
-        this.add(title);
-        this.add(jb_get_connected);
+        this.add(titulo);
+        this.add(btn_usuarios_conectados);
         this.add(scroll);
-        this.add(jb_start_talk);
+        this.add(btn_iniciar_conversa);
     }
 
     @Override
@@ -126,8 +136,8 @@ public class Home extends GUI {
             }
         });
         
-        jb_get_connected.addActionListener(event -> getConnectedUsers());
-        jb_start_talk.addActionListener(event -> openChat());
+        btn_usuarios_conectados.addActionListener(event -> getConnectedUsers());
+        btn_iniciar_conversa.addActionListener(event -> openChat());
     }
 
     @Override
@@ -139,7 +149,7 @@ public class Home extends GUI {
     private void getConnectedUsers() {
         Utils.sendMessage(connection, "GET_CONNECTED_USERS");
         String response = Utils.receiveMessage(connection);
-        jlist.removeAll();
+        lista_usuarios.removeAll();
         connected_users.clear();
         
         for (String user : response.split(";")) {
@@ -147,14 +157,14 @@ public class Home extends GUI {
                 connected_users.add(user);
             }
         }
-        jlist.setListData(connected_users.toArray());
+        lista_usuarios.setListData(connected_users.toArray());
     }
 
     private void openChat() {
-        int index = jlist.getSelectedIndex();
+        int index = lista_usuarios.getSelectedIndex();
         
         if (index != -1) {
-            String value = jlist.getSelectedValue().toString();
+            String value = lista_usuarios.getSelectedValue().toString();
             String[] splited = value.split(":");
             
             if (!opened_chats.contains(value)) {
@@ -179,10 +189,10 @@ public class Home extends GUI {
             @Override
             public void run() {
                 try {
-                    server = new ServerSocket(port);
+                    servidor = new ServerSocket(port);
                     System.out.println("Servidor cliente iniciado na porta " + port + " ...");
                     while (true) {
-                        Socket client = server.accept();
+                        Socket client = servidor.accept();
                         ClientListener cl = new ClientListener(home, client);
                         new Thread(cl).start();
                     }
