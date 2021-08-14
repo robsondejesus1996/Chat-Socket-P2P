@@ -1,7 +1,7 @@
 package cliente;
 
 import util.GUI;
-import util.Utils;
+import util.Utilizacao;
 import java.awt.*;
 import java.io.IOException;
 import java.net.Socket;
@@ -80,8 +80,8 @@ public class Login extends GUI {
                 text_porta.setText("");
                 connection = new Socket(Server.HOST, Server.PORT);
                 String request = nickname + ":" + connection.getLocalAddress().getHostAddress() + ":" + port;
-                Utils.sendMessage(connection, request);
-                if (Utils.receiveMessage(connection).toLowerCase().equals("sucess")) {
+                Utilizacao.enviarMensagem(connection, request);
+                if (Utilizacao.receberMensagem(connection).toLowerCase().equals("sucess")) {
                     new Home(connection, request);
                     this.dispose();
                 } else {

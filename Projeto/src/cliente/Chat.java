@@ -1,7 +1,7 @@
 package cliente;
 
 import util.GUI;
-import util.Utils;
+import util.Utilizacao;
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
@@ -102,7 +102,7 @@ public class Chat extends GUI {
 
             @Override
             public void windowClosing(WindowEvent e) {
-                Utils.sendMessage(connection, "CHAT_CLOSE");
+                Utilizacao.enviarMensagem(connection, "CHAT_CLOSE");
                 home.getOpened_chats().remove(connection_info);
                 home.getConnected_listeners().get(connection_info).setChatOpen(false);
                 home.getConnected_listeners().get(connection_info).setRunning(false);
@@ -159,7 +159,7 @@ public class Chat extends GUI {
     private void send() {
         DateFormat formato = new SimpleDateFormat("hh:mm:ss");
         lista_mensagens.add("<b>[" + formato.format(new Date()) + "] Eu: </b><i>" + enviar_mensagem.getText() + "</i><br>");
-        Utils.sendMessage(connection, "MESSAGE;<b>[" + formato.format(new Date()) + "] " + home.getConnection_info().split(":")[0] + ": </b><i>" + enviar_mensagem.getText() + "</i><br>");
+        Utilizacao.enviarMensagem(connection, "MESSAGE;<b>[" + formato.format(new Date()) + "] " + home.getConnection_info().split(":")[0] + ": </b><i>" + enviar_mensagem.getText() + "</i><br>");
         String message = "";
         
         for (String str : lista_mensagens) {

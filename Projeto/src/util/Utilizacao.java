@@ -7,31 +7,37 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Utils {
-    public static boolean sendMessage(Socket sock, String message)
-    {     
+
+/*
+Classe utilizada pelo servidor para o envio de mensagens e receber mensagens 
+*/
+public class Utilizacao {
+    
+    public static boolean enviarMensagem(Socket sock, String message){     
         try {
+            
+            //granvado os dados na conexao 
             ObjectOutputStream output = new ObjectOutputStream(sock.getOutputStream());
             output.flush();
             output.writeObject(message);
             return true;
         } catch (IOException ex) {
-            System.err.println("[ERROR:sendMessage] -> " + ex.getMessage());
+            System.err.println("[ERROR:ENVIAR-MENSAGEM] " + ex.getMessage());
         }
         return false;
     }
     
-    public static String receiveMessage(Socket sock)
-    {
+    public static String receberMensagem(Socket sock){
         String response = null;
         
         try {
+            //leitura dos dados da conexao 
             ObjectInputStream input = new ObjectInputStream(sock.getInputStream());
             response = (String) input.readObject();
         } catch (IOException ex) {
-            System.err.println("[ERROR:receiveMessage] -> " + ex.getMessage());
+            System.err.println("[ERROR:RECEBER-MENSAGEM] " + ex.getMessage());
         } catch (ClassNotFoundException ex) {
-            System.err.println("[ERROR:receiveMessage] -> " + ex.getMessage());
+            System.err.println("[ERROR:RECEBER-MENSAGEM] " + ex.getMessage());
         }
          return response;
     }

@@ -1,6 +1,6 @@
 package servidor;
 
-import util.Utils;
+import util.Utilizacao;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -25,14 +25,14 @@ public class Server {
             System.out.println("Servidor iniciado...");
             while (true) {
                 Socket client = server.accept();
-                request = Utils.receiveMessage(client);
+                request = Utilizacao.receberMensagem(client);
                 if (checkLogin(request)) {
                     ClientListener listener = new ClientListener(request, client, this);
                     clientes.put(request, listener);
-                    Utils.sendMessage(client, "SUCESS");
+                    Utilizacao.enviarMensagem(client, "SUCESS");
                     new Thread(listener).start();
                 }else {
-                    Utils.sendMessage(client, "ERROR");
+                    Utilizacao.enviarMensagem(client, "ERROR");
                 }
             }
         } catch (IOException ex) {

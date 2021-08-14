@@ -1,6 +1,6 @@
 package cliente;
 
-import util.Utils;
+import util.Utilizacao;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Level;
@@ -52,7 +52,7 @@ public class ClientListener implements Runnable {
         String message;
         
         while (running) {
-            message = Utils.receiveMessage(socket);
+            message = Utilizacao.receberMensagem(socket);
             
             if (message == null || message.equals("CHAT_CLOSE")) {
                 if (chatOpen) {

@@ -1,7 +1,7 @@
 package cliente;
 
 import util.GUI;
-import util.Utils;
+import util.Utilizacao;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.WindowEvent;
@@ -112,7 +112,7 @@ public class Home extends GUI {
             @Override
             public void windowClosing(WindowEvent e) {
                 System.out.println("Conexão encerrada...");
-                Utils.sendMessage(connection, "QUIT");
+                Utilizacao.enviarMensagem(connection, "QUIT");
             }
 
             @Override
@@ -147,8 +147,8 @@ public class Home extends GUI {
     }
 
     private void getConnectedUsers() {
-        Utils.sendMessage(connection, "GET_CONNECTED_USERS");
-        String response = Utils.receiveMessage(connection);
+        Utilizacao.enviarMensagem(connection, "GET_CONNECTED_USERS");
+        String response = Utilizacao.receberMensagem(connection);
         lista_usuarios.removeAll();
         connected_users.clear();
         
@@ -170,7 +170,7 @@ public class Home extends GUI {
             if (!opened_chats.contains(value)) {
                 try {
                     Socket socket = new Socket(splited[1], Integer.parseInt(splited[2]));
-                    Utils.sendMessage(socket, "OPEN_CHAT;" + connection_info);
+                    Utilizacao.enviarMensagem(socket, "OPEN_CHAT;" + connection_info);
                     ClientListener cl = new ClientListener(this, socket);
                     cl.setChat(new Chat(this, socket, value, this.connection_info.split(":")[0]));
                     cl.setChatOpen(true);

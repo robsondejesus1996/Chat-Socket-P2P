@@ -1,6 +1,6 @@
 package servidor;
 
-import util.Utils;
+import util.Utilizacao;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Map;
@@ -36,7 +36,7 @@ public class ClientListener implements Runnable {
         String message;
         
         while (running) {
-            message = Utils.receiveMessage(socket);
+            message = Utilizacao.receberMensagem(socket);
             
             if (message.toLowerCase().equals("quit")) {
                 server.getClientes().remove(nickname);
@@ -55,7 +55,7 @@ public class ClientListener implements Runnable {
                     response += (pair.getKey() + ";");
                 }
                 
-                Utils.sendMessage(socket, response);
+                Utilizacao.enviarMensagem(socket, response);
             }
             System.out.println(" >> Mensagem: " + message);
         }
