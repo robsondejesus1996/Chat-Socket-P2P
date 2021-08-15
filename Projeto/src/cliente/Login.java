@@ -6,7 +6,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.Socket;
 import javax.swing.*;
-import servidor.Server;
+import servidor.Servidor;
 
 public class Login extends GUI {
 
@@ -68,27 +68,32 @@ public class Login extends GUI {
         this.add(text_porta);
         this.add(text_usuario);
     }
-
+    
+    /*
+    Responsavel pela verificação de acesso de novos usuários fazendo aquela verificação no servidor de (nome, ip, porta)
+    */
     @Override
     protected void inserirAcoes() {
         btn_login.addActionListener(event -> {
             Socket connection;
             try {
-                String nickname = text_usuario.getText();
+                String nome = text_usuario.getText();
                 int port = Integer.parseInt(text_porta.getText());
                 text_usuario.setText("");
                 text_porta.setText("");
-                connection = new Socket(Server.HOST, Server.PORT);
-                String request = nickname + ":" + connection.getLocalAddress().getHostAddress() + ":" + port;
+                //iniciando minha conexao
+                connection = new Socket(Servidor.HOST, Servidor.PORT);
+                //minha conexao é nome:enderecoIP:porta
+                String request = nome + ":" + connection.getLocalAddress().getHostAddress() + ":" + port;
                 Utilizacao.enviarMensagem(connection, request);
                 if (Utilizacao.receberMensagem(connection).toLowerCase().equals("sucess")) {
                     new Home(connection, request);
-                    this.dispose();
+                    this.dispose();//fechar a janela atual 
                 } else {
                     JOptionPane.showMessageDialog(this, "Erro nome pode estar igual a algum usuário conectado ou a porta de conexão pode estar igual!");
                 }
             } catch (IOException ex) {
-                System.err.println("[ERROR:login] -> " + ex.getMessage());
+                System.err.println("ERRO LOGIN" + ex.getMessage());
                 JOptionPane.showMessageDialog(this, "Erro ao conectar. Verifique se o servidor está em execução.");
             }
 

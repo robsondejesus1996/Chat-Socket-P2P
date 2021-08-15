@@ -20,7 +20,7 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
-import servidor.Server;
+import servidor.Servidor;
 
 public class Home extends GUI {
 

@@ -6,20 +6,26 @@ import java.net.Socket;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import servidor.Server;
+import servidor.Servidor;
 
+/*
+Classe responsável pela escuta de novos clientes
+*/
 public class ClientListener implements Runnable {
 
-    private boolean running;
+    private boolean running;//rodar numa thread
     private Socket socket;
-    private String nickname;
-    private Server server;
+    private String nome;
+    private Servidor servidor;
 
-    public ClientListener(String nickname, Socket socket, Server server) {
-        this.server = server;
-        running = false;
+    /*
+    Informações para a conexao (conexao, referencia da sorvidor)
+    */
+    public ClientListener(String nome, Socket socket, Servidor servidor) {
+        this.servidor = servidor;
+        running = false; // inicialmente a thread não vai estar rodando 
         this.socket = socket;
-        this.nickname = nickname;
+        this.nome = nome;
     }
 
     public boolean isRunning() {
@@ -32,14 +38,14 @@ public class ClientListener implements Runnable {
 
     @Override
     public void run() {
-        running = true;
+        running = true;// a thread vai comecar a rodar
         String message;
         
-        while (running) {
+        while (running) {// vai ficar recebendo mensagem dessa conexao 
             message = Utilizacao.receberMensagem(socket);
             
             if (message.toLowerCase().equals("quit")) {
-                server.getClientes().remove(nickname);
+                servidor.getClientes().remove(nome);
                 
                 try {
                     socket.close();
@@ -47,11 +53,13 @@ public class ClientListener implements Runnable {
                     System.err.println("[ClientListener:Run] -> " + ex.getMessage());
                 }
                 running = false;
+                //se abertar o botao vai disporar essa solicitação
             } else if (message.equals("GET_CONNECTED_USERS")) {
-                System.out.println("Solicitação de atualizar lista de contatos...");
+                System.out.println("FOI SOLICITADO A ATUALIZAÇÃO DA LISTA DE CONTATOS...");
                 String response = "";
                 
-                for (Map.Entry<String, ClientListener> pair : server.getClientes().entrySet()) {
+                //minha resposta é a chave de informação que vai ser concatenado com ';'
+                for (Map.Entry<String, ClientListener> pair : servidor.getClientes().entrySet()) {
                     response += (pair.getKey() + ";");
                 }
                 
