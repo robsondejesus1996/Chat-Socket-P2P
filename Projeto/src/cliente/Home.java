@@ -96,6 +96,7 @@ public class Home extends GUI {
 
     @Override
     protected void inserirComponenetes() {
+        this.setLocationRelativeTo(null);
         this.add(titulo);
         this.add(btn_usuarios_conectados);
         this.add(scroll);

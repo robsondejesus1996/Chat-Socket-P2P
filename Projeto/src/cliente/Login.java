@@ -17,11 +17,10 @@ public class Login extends GUI {
     public Login() {
         super("Login");
     }
-    
-    
+
     /*
     iniciar os componetes em tela com os seus respecitivos nomes
-    */
+     */
     @Override
     protected void inicializarComponentes() {
         btn_login = new JButton("Entrar");
@@ -29,12 +28,12 @@ public class Login extends GUI {
         label_porta = new JLabel("Porta de Acesso", SwingConstants.CENTER);
         label_titulo = new JLabel();
         text_usuario = new JTextField();
-        text_porta =  new JTextField();
+        text_porta = new JTextField();
     }
 
     /*
     espefificação de tamalho de cada componente na tela de login 
-    */
+     */
     @Override
     protected void configurarComponentes() {
         this.setLayout(null);
@@ -61,6 +60,7 @@ public class Login extends GUI {
 
     @Override
     protected void inserirComponenetes() {
+        this.setLocationRelativeTo(null);
         this.add(label_titulo);
         this.add(btn_login);
         this.add(label_porta);
@@ -68,10 +68,10 @@ public class Login extends GUI {
         this.add(text_porta);
         this.add(text_usuario);
     }
-    
+
     /*
     Responsavel pela verificação de acesso de novos usuários fazendo aquela verificação no servidor de (nome, ip, porta)
-    */
+     */
     @Override
     protected void inserirAcoes() {
         btn_login.addActionListener(event -> {
