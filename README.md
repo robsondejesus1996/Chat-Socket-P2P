@@ -113,7 +113,15 @@ Especificação mensagens Cliente
 2) Ao abrir uma conversa com outro cliente, teremos o ClienteListener se conectando com outro ClienteListener
 
 
+<h1> Diagrama de Sequência </h1>
+
 ![Diagrama_sequencia_cliente_cliente](https://user-images.githubusercontent.com/31260719/129609417-7a1b38b7-48c4-4a41-92b9-164ddd40bdbd.png)
+
+
+<h1> Diagrama de Classe </h1>
+
+![diagrama_classe_cliente_cliente](https://user-images.githubusercontent.com/31260719/129619463-5fcf0304-5c80-444e-84e4-19e888b22bf8.png)
+
 
 
 ---
