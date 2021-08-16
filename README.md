@@ -34,7 +34,7 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 ## [Descrição e Requisitos Funcionais](#descricao)
 
 <h1>Descrição</h1>
-O trabalho tem como objetivo desenvolver uma aplicação Servivor/Cliente e Cliete/Cliente P2P para o troca de mensagens. Logo vamos desenvolver aqui uma aplicação estilo Messenger que os usuários ao entrar<br>
+O trabalho tem como objetivo desenvolver uma aplicação Servivor/Cliente e Cliete/Cliente P2P para a troca de mensagens. Logo vamos desenvolver aqui uma aplicação estilo Messenger que os usuários ao entrar<br>
 devem informar o nome e uma porta para a comunicação entre as redes. Vamos utilizar de uma tecnologia chamada socket (network socket) que seria um ponto final de um fluxo de comunicação entre porcessos<br>
 através de uma rede de computadores.<br>
 
@@ -70,7 +70,6 @@ está online no momento e quem não está.
         B)A comunicação cliente→servidor deve ser a mínima possível. O funcionamento do sistema deve<br>
         ser baseado principalmente na comunicação ser cliente→cliente.<br>
         C)Não se deve utilizar nenhuma implementação pronta de qualquer servidor (ex: Express JS). Em<br>
-        caso de dúvida, consulte o professor.<br>
 <b>[RNF6]</b> -  Se utilizar Sockets no requisito (2), então deve-se observar os seguintes requisitos: <br>
         A)Sockets ociosos não podem existir (todos devem ser fechados logo após a comunicação).
         B)Os dados enviados entre cliente/servidor e cliente/cliente podem estar no formato JSON ou<br>
@@ -98,8 +97,8 @@ Especificação mensagens Servidor
 
 ## [Especificação Mensagens(Cliente/Cliente)](#ClienteCliente)
 
-Após o cliente receber está lista do servidor ele pode se conectar diretamente com cada um dos clientes. A mensagem que esse chat for enviar
-não vai passar pelo servidor, e depois o servidor enviar para o cliente. O cliente vai fazer uma conexão diretamente com o outro clientes.
+Após o cliente receber está lista do servidor ele pode se conectar diretamente com cada um dos clientes. A mensagem que esse chat enviar,
+não irá passar pelo servidor, depois, o servidor enviará para o cliente. O cliente irá realizar uma conexão diretamente com outros clientes.
 
 Especificação mensagens Cliente
 
