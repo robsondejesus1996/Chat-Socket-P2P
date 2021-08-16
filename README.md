@@ -87,8 +87,14 @@ Especificação mensagens Servidor
 2) Retorno de erro se o usuário entrar com o mesmo nome e porta(A porta de entrada deve ser única se o usuário estiver na mesma rede de acesso).<br>
 3) Retorna o erro de execução do servidor se por acasso o servidor no momento não estiver em execução.<br>
 
+<h1>Diagrama de Sequências</h1>
 
 ![Diagrama_sequencia_cliente_servidor](https://user-images.githubusercontent.com/31260719/129609235-db95b8ec-bba0-4166-b4cf-f96966872784.png)
+
+<h1>Diagrama de Classe</h1>
+
+![Classe_servidor](https://user-images.githubusercontent.com/31260719/129617695-696027e5-faee-4bb3-9270-3f5cfd093a26.png)
+
 
 
 
