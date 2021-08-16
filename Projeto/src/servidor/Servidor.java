@@ -10,9 +10,9 @@ import java.util.Map;
 public class Servidor {
     
     
-    //127.0.0.1
+    //127.0.0.1,    192.168.1.3
     public static final String HOST = "127.0.0.1";//host padrao da maquina que será usado como servidor, logo as outras pessoas tem que colocar o mesmo host aqui 
-    public static final int PORT = 4444;
+    public static final int PORT = 1111;
 
     private ServerSocket server;
     private Map<String, ClientListener> clientes;//lista para acessar os dados do cliente
@@ -24,7 +24,7 @@ public class Servidor {
             clientes = new HashMap<String, ClientListener>();
             //inicialização do meu servidor
             server = new ServerSocket(PORT);
-            System.out.println("SERVIDOR INICIALIZADO COM SUCESSO...");
+            System.out.println("SERVIDOR INICIALIZADO COM SUCESSO..." + HOST);
             //loop infinito para para sempre ficar rodando o servidor
             while (true) {
                 //aceitar notas conexoes vinda do server

@@ -46,13 +46,13 @@ está online no momento e quem não está.
 <br>
 
 <h1>Requisitos Funcionais</h1>
-[RNF1] - O sistema deve permitir a verificação do usuário ao fazer o login (Nome usuário e Porta) <br>
-[RNF2] – O sistema deve permitir o envio de mensagens entre os usuários, a comunicação será direta entre cada usuário, logo será de forma privada. <br>
-[RNF3] - O sistema deve ter um mecanismo para retorna um erro de execução se o Server não estiver em execução. <br>
-[RNF4] - O sistema deve ter em cada tela ao entrar no sistema o nome especificado do cliente que acabou de logar no sistema. <br>
-[RNF5] - O sistema deve ter um botão para sempre atualizar a lista de usuários onlines no momento. Assim vamos conseguir ter a informação do nome e a rede que esse usuário está. <br>
-[RNF6] - O sistema ao iniciar uma conversa com outro usuário deve abrir duas janelas de chat, uma para quem inicio a conversa e outra para quem está sendo solicitado no momento da conversa. <br>
-[RNF7] - O sistema deve identificar se um usuário fechou a janela do chat com outro usuário. Assim as duas janelas devem ser encerradas ao mesmo tempo. <br>
+[RF01] - O sistema deve permitir a verificação do usuário ao fazer o login (Nome usuário e Porta) <br>
+[RF02] – O sistema deve permitir o envio de mensagens entre os usuários, a comunicação será direta entre cada usuário, logo será de forma privada. <br>
+[RF03] - O sistema deve ter um mecanismo para retorna um erro de execução se o Server não estiver em execução. <br>
+[RF04] - O sistema deve ter em cada tela ao entrar no sistema o nome especificado do cliente que acabou de logar no sistema. <br>
+[RF05] - O sistema deve ter um botão para sempre atualizar a lista de usuários onlines no momento. Assim vamos conseguir ter a informação do nome e a rede que esse usuário está. <br>
+[RF06] - O sistema ao iniciar uma conversa com outro usuário deve abrir duas janelas de chat, uma para quem inicio a conversa e outra para quem está sendo solicitado no momento da conversa. <br>
+[RF07] - O sistema deve identificar se um usuário fechou a janela do chat com outro usuário. Assim as duas janelas devem ser encerradas ao mesmo tempo. <br>
 
 
 ---
@@ -62,9 +62,7 @@ está online no momento e quem não está.
 <b>[RNF1]</b> - Deve ser distribuído e executar simultanamente em no mínimo 3 clientes (hosts) diferentes. <br>
         A) Considerar o uso do ngrok para comunicação entre os diferentes hosts.<br>
 <b>[RNF2]</b> - Deve haver comunicação entre os diferentes clientes através de: <br>
-        A)Sockets, ou<br>
-        B)RMI. Ler seções 5.4 e 5.5 de (COULOURIS, DOLLIMORE, et al., 2013) ou,<br>
-        C)CORBA. Ler seção 8.3 de (COULOURIS, DOLLIMORE, et al., 2013).<br>
+        A)Sockets, cada cliente ira se conectar com outro cliente, logo não vai haver a necessidade de um servidor que vai receber a mensagem, passar pelo servidor e depois mandar para o cliente. Vamos utilizar o conceito de P2P cliente se conectando com cliente<br>
 <b>[RNF3]</b> -  A comunicação cliente/cliente deve ser direta, ou seja, sem passar por qualquer servidor. <br>
 <b>[RNF4]</b> -  Deve ser possível realizar comunicação entre diversos clientes simultaneamente.<br>
 <b>[RNF5]</b> -  Se necessário, pode ser implementado um servidor simples para ser acessado pelos clientes.<br>
@@ -77,10 +75,7 @@ está online no momento e quem não está.
         A)Sockets ociosos não podem existir (todos devem ser fechados logo após a comunicação).
         B)Os dados enviados entre cliente/servidor e cliente/cliente podem estar no formato JSON ou<br>
         XML. Não é permitido o uso de serialização de objetos.<br>
-<b>[RNF7]</b> -  A aplicação cliente deve ter interface gráfica. <br>
-        A) A equipe pode utilizar interface gráfica disponível em outros projetos, citando a fonte/projeto.<br>
-        MAS ATENÇÃO: o projeto utilizado como base não pode ser distribuído (não pode já ter<br>
-        comunicação entre clientes)<br>
+
 
 ---
 ## [Especificação Mensagens(Cliente/Servidor)](#ClienteServidor)
@@ -92,6 +87,10 @@ Especificação mensagens Servidor
 1) Retorno de sucesso se ele conseguir conectar no chat.<br>
 2) Retorno de erro se o usuário entrar com o mesmo nome e porta(A porta de entrada deve ser única se o usuário estiver na mesma rede de acesso).<br>
 3) Retorna o erro de execução do servidor se por acasso o servidor no momento não estiver em execução.<br>
+
+
+![Diagrama_sequencia_cliente_servidor](https://user-images.githubusercontent.com/31260719/129609235-db95b8ec-bba0-4166-b4cf-f96966872784.png)
+
 
 
 ---
@@ -108,9 +107,13 @@ Especificação mensagens Cliente
 
 2) Ao abrir uma conversa com outro cliente, teremos o ClienteListener se conectando com outro ClienteListener
 
+
+![Diagrama_sequencia_cliente_cliente](https://user-images.githubusercontent.com/31260719/129609417-7a1b38b7-48c4-4a41-92b9-164ddd40bdbd.png)
+
+
 ---
 
-## [Diagramas](#diagramas)
+<!--## [Diagramas](#diagramas)
 
 <h1>Comunicação Cliente/Servidor diagrama de classes</h1>
 
@@ -130,4 +133,4 @@ Especificação mensagens Cliente
 ![Cliente-Cliente](https://user-images.githubusercontent.com/31260719/127002858-9bdb0cf6-e2ae-41b3-8255-5a13be53a0d3.png)
 
 
-<h1>Comunicação Cliente/Cliente diagrama de sequências</h1>
+<h1>Comunicação Cliente/Cliente diagrama de sequências</h1> -->

@@ -44,6 +44,8 @@ public class ClientListener implements Runnable {
         while (running) {// vai ficar recebendo mensagem dessa conexao 
             message = Utilizacao.receberMensagem(socket);
             
+            
+            //se na home o cliente fechar a janela vai enviar um quit e encerrar o servidor para aquele cliente, se entrar com as mesma credencias vai dar certo depois 
             if (message.toLowerCase().equals("quit")) {
                 servidor.getClientes().remove(nome);
                 

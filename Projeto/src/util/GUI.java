@@ -6,11 +6,11 @@ import javax.swing.SwingConstants;
 public abstract class GUI extends JFrame{
     public GUI(String title){
         super(title);
-        inicializarComponentes();//inicializarComponentes
-        configurarComponentes();//configurarComponentes
-        inserirComponenetes();//inserirComponenetes
-        inserirAcoes();//inserirAcoes
-        iniciar();//iniciar
+        inicializarComponentes();
+        configurarComponentes();
+        inserirComponenetes();
+        inserirAcoes();
+        iniciar();
     }
     
     protected abstract void inicializarComponentes();
