@@ -122,12 +122,10 @@ Especificação mensagens Cliente
 
 <h1>Comunicação Cliente/Servidor diagrama de sequências</h1>
 
+![Cliente-ServidorSequencia](https://user-images.githubusercontent.com/31260719/129446020-d89ba9ba-d854-4f35-b01b-61f0bc252502.png)
 
 
 <h1>Comunicação Cliente/Cliente diagrama de classes</h1>
-
-![Cliente-ServidorSequencia](https://user-images.githubusercontent.com/31260719/129446020-d89ba9ba-d854-4f35-b01b-61f0bc252502.png)
-
 
 
 ![Cliente-Cliente](https://user-images.githubusercontent.com/31260719/127002858-9bdb0cf6-e2ae-41b3-8255-5a13be53a0d3.png)
