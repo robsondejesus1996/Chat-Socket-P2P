@@ -89,7 +89,8 @@ Especificação mensagens Servidor
 
 <h1>Diagrama de Sequências</h1>
 
-![Diagrama_sequencia_cliente_servidor](https://user-images.githubusercontent.com/31260719/129609235-db95b8ec-bba0-4166-b4cf-f96966872784.png)
+![NovoDiagramaSequenciaServidorCliente](https://user-images.githubusercontent.com/31260719/129813016-e5f1c21c-ce47-474d-a866-94803c2a4b89.png)
+
 
 <h1>Diagrama de Classe</h1>
 
