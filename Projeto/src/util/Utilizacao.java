@@ -8,15 +8,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-/*
-Classe utilizada pelo servidor para o envio de mensagens e receber mensagens 
-*/
+
 public class Utilizacao {
     
     public static boolean enviarMensagem(Socket sock, String message){     
         try {
             
-            //granvado os dados na conexao 
             ObjectOutputStream output = new ObjectOutputStream(sock.getOutputStream());
             output.flush();
             output.writeObject(message);
@@ -31,7 +28,6 @@ public class Utilizacao {
         String response = null;
         
         try {
-            //leitura dos dados da conexao 
             ObjectInputStream input = new ObjectInputStream(sock.getInputStream());
             response = (String) input.readObject();
         } catch (IOException ex) {

@@ -24,9 +24,6 @@ public class Chat extends GUI {
     private Socket connection;
     private String connection_info;
 
-    /*
-    Recebendo uma string de informaçoes, com quem eu estou me conectando, e o titulo é de quem é esse chat o dono 
-    */
     public Chat(Home home, Socket connection, String connection_info, String title) {
         super("UDESC - Chat " + title);
         this.home = home;
@@ -68,12 +65,7 @@ public class Chat extends GUI {
         panel.add(btn_mensagem, BorderLayout.EAST);
     }
 
-    
-    /*
-    Ações que vão ser executadas na tela
-    quando enviar uma mensagem: ketPressed enviar mensagem 
-    quando precionar o enter: enviar mensagem
-    */
+
     @Override
     protected void inserirAcoes() {
         enviar_mensagem.addKeyListener(new KeyListener() {
@@ -131,13 +123,10 @@ public class Chat extends GUI {
         });
     }
 
-    /*
-    Para quando receber a mensagem na área do editor ser atualizado setando nada no campo "" quando enviar e receber 
-    */
+
     public void append_message(String received) {
         lista_mensagens.add(received);
         String message = "";
-        //para cada string de str dentro de message, colocar message += str
         for (String str : lista_mensagens) {
             message += str;
         }
@@ -152,10 +141,7 @@ public class Chat extends GUI {
     }
 
     
-    /*
-    Quando for enviar uma mensagem para alguem 
-    Com o formato de horas, minutos e segundos. 
-    */
+
     private void send() {
         DateFormat formato = new SimpleDateFormat("hh:mm:ss");
         lista_mensagens.add("<b>[" + formato.format(new Date()) + "] Eu: </b><i>" + enviar_mensagem.getText() + "</i><br>");

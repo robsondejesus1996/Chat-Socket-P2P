@@ -18,9 +18,6 @@ public class Login extends GUI {
         super("Login");
     }
 
-    /*
-    iniciar os componetes em tela com os seus respecitivos nomes
-     */
     @Override
     protected void inicializarComponentes() {
         btn_login = new JButton("Entrar");
@@ -31,9 +28,6 @@ public class Login extends GUI {
         text_porta = new JTextField();
     }
 
-    /*
-    espefificação de tamalho de cada componente na tela de login 
-     */
     @Override
     protected void configurarComponentes() {
         this.setLayout(null);
@@ -69,9 +63,6 @@ public class Login extends GUI {
         this.add(text_usuario);
     }
 
-    /*
-    Responsavel pela verificação de acesso de novos usuários fazendo aquela verificação no servidor de (nome, ip, porta)
-     */
     @Override
     protected void inserirAcoes() {
         btn_login.addActionListener(event -> {
@@ -81,14 +72,12 @@ public class Login extends GUI {
                 int port = Integer.parseInt(text_porta.getText());
                 text_usuario.setText("");
                 text_porta.setText("");
-                //iniciando minha conexao
                 connection = new Socket(Servidor.HOST, Servidor.PORT);
-                //minha conexao é nome:enderecoIP:porta
                 String request = nome + ":" + connection.getLocalAddress().getHostAddress() + ":" + port;
                 Utilizacao.enviarMensagem(connection, request);
                 if (Utilizacao.receberMensagem(connection).toLowerCase().equals("sucess")) {
                     new Home(connection, request);
-                    this.dispose();//fechar a janela atual 
+                    this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Erro nome pode estar igual a algum usuário conectado ou a porta de conexão pode estar igual!");
                 }
