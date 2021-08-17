@@ -48,8 +48,8 @@ public class Chat extends GUI {
     protected void configurarComponentes() {
         this.setMinimumSize(new Dimension(480, 720));
         this.setLayout(new BorderLayout());
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);// pegar apenas o chat, assim não fecha toda a aplicação 
-        mensagens.setContentType("text/html");//configuração para a mensagem ficar mais bonita no formato html 
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        mensagens.setContentType("text/html");
         mensagens.setEditable(false);
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);

@@ -11,7 +11,7 @@ import servidor.Servidor;
 
 public class ClientListener implements Runnable {
 
-    private boolean running;//rodar numa thread
+    private boolean running;
     private Socket socket;
     private String nome;
     private Servidor servidor;

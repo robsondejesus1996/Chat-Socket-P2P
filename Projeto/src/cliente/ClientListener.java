@@ -81,7 +81,6 @@ public class ClientListener implements Runnable {
                 
 
             } else {
-                //definição dos meus campos, separando pro ';'
                 String[] fields = message.split(";");
                  
                 if (fields.length > 1) {

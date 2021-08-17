@@ -79,7 +79,7 @@ está online no momento e quem não está.
 ---
 ## [Especificação Mensagens(Cliente/Servidor)](#ClienteServidor)
 
-A comunicação entre essas duas partes será minima, o servidor me retorna o endereço IP a porta e o nome do cliente que está conectado. A verificação do nome do cliente e a porta se da pelo metodo checkLogin() na classe server, esse metodo vai testar o nome e a porta. Vamos desenvolver a comunicação cliente e servidor para coisas simples como:
+A comunicação entre essas duas partes será minima, o servidor me retorna o endereço IP a porta e o nome do cliente que está conectado. A verificação do nome do cliente e a porta se da pelo metodo verificarLogin() na classe servidor, esse metodo vai testar o nome e a porta. Vamos desenvolver a comunicação cliente e servidor para coisas simples como:
 
 Especificação mensagens Servidor
 
@@ -108,7 +108,7 @@ não irá passar pelo servidor, depois, o servidor enviará para o cliente. O cl
 
 Especificação mensagens Cliente
 
-1) Quando o usuário já estiver logado no sistema teremos um atualizar lista de contatos, essa é a unica função que também está conectada com o Server(Lembrado isso é só para pegar a lista de usuários conectados no momento)
+1) Quando o usuário já estiver logado no sistema teremos um atualizar lista de contatos, essa é a unica função que também está conectada com o Servidor(Lembrado isso é só para pegar a lista de usuários conectados no momento)
 
 2) Ao abrir uma conversa com outro cliente, teremos o ClienteListener se conectando com outro ClienteListener
 
