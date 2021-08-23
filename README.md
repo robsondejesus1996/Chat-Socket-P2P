@@ -34,12 +34,12 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 ## [Descrição e Requisitos Funcionais](#descricao)
 
 <h1>Descrição</h1>
-O trabalho tem como objetivo desenvolver uma aplicação Servivor/Cliente e Cliete/Cliente P2P para a troca de mensagens. Logo vamos desenvolver aqui uma aplicação estilo Messenger que os usuários ao entrar<br>
-devem informar o nome e uma porta para a comunicação entre as redes. Vamos utilizar de uma tecnologia chamada socket (network socket) que seria um ponto final de um fluxo de comunicação entre porcessos<br>
+O trabalho tem como objetivo desenvolver uma aplicação Servidor/Cliente e Cliente/Cliente P2P para a troca de mensagens. Foi desenvolvida uma aplicação estilo Messenger que os usuários ao entrar<br>
+devem informar o nome e uma porta para a comunicação entre as redes. Usamos tecnologia chamada socket (network socket) que seria um ponto final de um fluxo de comunicação entre processos<br>
 através de uma rede de computadores.<br>
 
-<h1>Funcionamento comunicação</h1>
-A comunicação do chat vai ser através de todo o cliente se comunica com o servidor para ter a lista de todos os clientes que estão online, ou seja, o servidor me retorna o endereço IP
+<h1>Funcionamento e comunicação</h1>
+A comunicação do chat é feita através do cliente que se comunica com o servidor e tem a lista de todos os clientes que estão online, ou seja, o servidor me retorna o endereço IP
 a porta e o nome do cliente que está conectado. Após o cliente receber está lista do servidor ele pode se conectar diretamente com cada um dos clientes. A mensagem que esse chat for enviar
 não vai passar pelo servidor, e depois o servidor enviar para o cliente. O cliente vai fazer uma conexão diretamente com o outro cliente P2P. O servidor só será utilizado para dizer quem 
 está online no momento e quem não está.
@@ -50,7 +50,7 @@ está online no momento e quem não está.
 <b>[RF02]</b> – O sistema deve permitir o envio de mensagens entre os usuários, a comunicação será direta entre cada usuário, logo será de forma privada. <br>
 <b>[RF03]</b> - O sistema deve ter um mecanismo para retorna um erro de execução se o Server não estiver em execução. <br>
 <b>[RF04]</b> - O sistema deve ter em cada tela ao entrar no sistema o nome especificado do cliente que acabou de logar no sistema. <br>
-<b>[RF05]</b> - O sistema deve ter um botão para sempre atualizar a lista de usuários onlines no momento. Assim vamos conseguir ter a informação do nome e a rede que esse usuário está. <br>
+<b>[RF05]</b> - O sistema deve ter um botão para sempre atualizar a lista de usuários online no momento. Assim vamos conseguir ter a informação do nome e a rede que esse usuário está. <br>
 <b>[RF06]</b> - O sistema ao iniciar uma conversa com outro usuário deve abrir duas janelas de chat, uma para quem inicio a conversa e outra para quem está sendo solicitado no momento da conversa. <br>
 <b>[RF07]</b> - O sistema deve identificar se um usuário fechou a janela do chat com outro usuário. Assim as duas janelas devem ser encerradas ao mesmo tempo. <br>
 
@@ -59,7 +59,7 @@ está online no momento e quem não está.
 
 ## [Requisitos Não Funcionais](##requisitos)
 
-<b>[RNF1]</b> - Deve ser distribuído e executar simultanamente em no mínimo 3 clientes (hosts) diferentes. <br>
+<b>[RNF1]</b> - Deve ser distribuído e executar simultaneamente em no mínimo 3 clientes (hosts) diferentes. <br>
         A) Considerar o uso do ngrok para comunicação entre os diferentes hosts.<br>
 <b>[RNF2]</b> - Deve haver comunicação entre os diferentes clientes através de: <br>
         A)Sockets, cada cliente ira se conectar com outro cliente, logo não vai haver a necessidade de um servidor que vai receber a mensagem, passar pelo servidor e depois mandar para o cliente. Vamos utilizar o conceito de P2P cliente se conectando com cliente<br>
