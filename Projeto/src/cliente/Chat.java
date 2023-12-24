@@ -26,6 +26,7 @@ public class Chat extends GUI {
 
     public Chat(Home home, Socket connection, String connection_info, String title) {
         super("UDESC - Chat " + title);
+
         this.home = home;
         this.connection_info = connection_info;
         lista_mensagens = new ArrayList<String>();
